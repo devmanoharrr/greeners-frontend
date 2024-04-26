@@ -47,7 +47,7 @@ const quickLinks02 = [
     display: "Find a Greener",
   },
   {
-    path: "/",
+    path: "/find-a-greener",
     display: "Request Booking",
   },
   {
@@ -78,7 +78,7 @@ const Footer = () => {
         <div className="flex justify-between flex-col md:flex-row flex-wrap gap-[30px]">
           <div>
             <img src={logo} alt="" />
-            <p className="text-[16px] leading-7 font-[400] text-textColor mt-4">Copyright {year} developer by Manohar all right reserved.</p>
+            <p className="text-[16px] leading-7 font-[400] text-textColor mt-4">Copyright {year} developed by Sai Kiran all right reserved.</p>
             <div className="flex items-center gap-3 mt-4">
               {socialLinks.map((link, index) => (
                 <Link to={link.path} key={index} className="w-9 h-9 border border-solid border-[#181A1E] rounded-full flex items-center justify-center group hover:bg-primaryColor hover:border-none">

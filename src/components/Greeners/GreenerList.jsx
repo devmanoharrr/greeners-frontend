@@ -5,7 +5,19 @@ import Loader from "../../components/Loader/Loading";
 import Error from "../../components/Error/Error";
 
 const GreenerList = () => {
-  const { data: greeners, loading, error } = useFetchData(`${BASE_URL}/greeners`);
+  const [token, setToken] = useState(localStorage.getItem("token") || ""); // Get the token from localStorage
+
+  useEffect(() => {
+    // Update token when it changes in local storage
+    const updateToken = () => {
+      setToken(localStorage.getItem("token") || "");
+    };
+    window.addEventListener("storage", updateToken);
+    return () => window.removeEventListener("storage", updateToken);
+  }, []);
+
+
+  const { data: greeners, loading, error } = useFetchData(`${BASE_URL}/greeners`, token);
 
   return (
     <>

@@ -9,7 +9,17 @@ import GreenerAbout from "./../../pages/Greeners/GreenerAbout";
 import Profile from "./Profile";
 import Appointments from "./Appointments";
 const Dashboard = () => {
-  const { data, loading, error } = useGetProfile(`${BASE_URL}/greeners/profile/me`);
+  const [token, setToken] = useState(localStorage.getItem("token") || ""); // Get the token from localStorage
+
+  useEffect(() => {
+    // Update token when it changes in local storage
+    const updateToken = () => {
+      setToken(localStorage.getItem("token") || "");
+    };
+    window.addEventListener("storage", updateToken);
+    return () => window.removeEventListener("storage", updateToken);
+  }, []);
+  const { data, loading, error } = useGetProfile(`${BASE_URL}/greeners/profile/me`, token);
 
   const [tab, setTab] = useState("overview");
   return (

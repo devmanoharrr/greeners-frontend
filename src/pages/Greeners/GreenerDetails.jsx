@@ -14,7 +14,18 @@ const GreenerDetails = () => {
 
   const { id } = useParams();
 
-  const { data: greener, loading, error } = useFetchData(`${BASE_URL}/greeners/${id}`);
+  const [token, setToken] = useState(localStorage.getItem("token") || ""); // Get the token from localStorage
+
+  useEffect(() => {
+    // Update token when it changes in local storage
+    const updateToken = () => {
+      setToken(localStorage.getItem("token") || "");
+    };
+    window.addEventListener("storage", updateToken);
+    return () => window.removeEventListener("storage", updateToken);
+  }, []);
+
+  const { data: greener, loading, error } = useFetchData(`${BASE_URL}/greeners/${id}`, token);
 
   const { name, qualifications, experiences, timeSlots, reviews, bio, about, averageRating, totalRating, specialization, ticketPrice, photo } = greener;
 

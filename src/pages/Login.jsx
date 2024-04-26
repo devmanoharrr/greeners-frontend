@@ -48,7 +48,6 @@ const Login = () => {
 
       setLoading(false);
       toast.success(result.message);
-      window.location.reload();
       navigate("/home");
     } catch (err) {
       toast.error(err.message);

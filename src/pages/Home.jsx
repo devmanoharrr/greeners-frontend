@@ -29,8 +29,8 @@ const Home = () => {
             <div>
               <div className="lg:w-[570px]">
                 <h1 className="text-[36px] leading-[46px] text-headingColor font-[800] md:text-[60px] md:leading-[70px]">Enhancing Lives through Gardening and Cleaning.</h1>
-                <p className="text__para">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolor necessitatibus consectetur quibusdam velit veritatis deleniti expedita quis ut mollitia ea voluptatem repudiandae error eius aspernatur esse numquam, tenetur magni debitis!</p>
-                <button className="btn">Request Booking</button>
+                <p className="text__para">At our core, we believe in the transformative power of gardening and cleaning. By nurturing plants and maintaining clean spaces, we not only enhance our surroundings but also uplift spirits. Our mission is to bring joy, wellness, and sustainability to every home and community we serve.</p>
+                <button className="btn"><Link to="/greeners">Request Booking</Link></button>
               </div>
 
               <div className="mt-[30px] lg:mt-[70px] flex flex-col lg:flex-row lg:items-center gap-5 lg:gap-[30px]">
@@ -126,8 +126,8 @@ const Home = () => {
       <section>
         <div className="container">
           <div className="xl:w-[470px] mx-auto">
-            <h2 className="heading text-center">Our services</h2>
-            <p className="text__para text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus, expedita.</p>
+          <h2 className="heading text-center">Explore Our Services</h2>
+<p className="text__para text-center">Discover a world of possibilities with our comprehensive range of services tailored to meet your needs. From expert gardening to meticulous cleaning, we're here to transform your space into a haven of beauty and tranquility. Let us bring our expertise and passion to your doorstep.</p>
           </div>
 
           <ServiceList />
@@ -137,8 +137,8 @@ const Home = () => {
       <section>
         <div className="container">
           <div className="xl:w-[470px] mx-auto">
-            <h2 className="heading text-center">Our Top Greeners</h2>
-            <p className="text__para text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus, expedita.</p>
+          <h2 className="heading text-center">Meet Our Top Greeners</h2>
+<p className="text__para text-center">Get to know the dedicated individuals who bring expertise, passion, and green-thumb magic to every garden they touch. Our top greeners are seasoned professionals committed to excellence, ensuring your outdoor space flourishes with beauty and vitality. Discover the difference they can make in your garden today!</p>
           </div>
           <GreenerList />
         </div>
@@ -162,8 +162,8 @@ const Home = () => {
       <section>
         <div className="container">
           <div className="xl:w-[470px] mx-auto">
-            <h2 className="heading text-center">What Our Customers say</h2>
-            <p className="text__para text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus, expedita.</p>
+          <h2 className="heading text-center">Discover Customer Stories</h2>
+<p className="text__para text-center">Explore the experiences of our valued customers and hear firsthand how our services have transformed their lives. From glowing testimonials to heartfelt reviews, our customers' stories speak volumes about the quality and impact of our work. Join the chorus of satisfied clients and experience the difference for yourself.</p>
           </div>
           <Testimonial />
         </div>

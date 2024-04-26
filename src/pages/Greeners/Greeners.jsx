@@ -55,7 +55,7 @@ const Greeners = () => {
         <div className="container">
           <div className="xl:w-[470px] mx-auto">
             <h2 className="heading text-center">What Our Customers say</h2>
-            <p className="text__para text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus, expedita.</p>
+            <p className="text__para text-center">Explore the experiences of our valued customers and hear firsthand how our services have transformed their lives.</p>
           </div>
           <Testimonial />
         </div>

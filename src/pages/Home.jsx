@@ -127,7 +127,7 @@ const Home = () => {
         <div className="container">
           <div className="xl:w-[470px] mx-auto">
           <h2 className="heading text-center">Explore Our Services</h2>
-<p className="text__para text-center">Discover a world of possibilities with our comprehensive range of services tailored to meet your needs. From expert gardening to meticulous cleaning, we're here to transform your space into a haven of beauty and tranquility. Let us bring our expertise and passion to your doorstep.</p>
+<p className="text__para text-center">Discover a world of possibilities with our comprehensive range of services tailored to meet your needs.</p>
           </div>
 
           <ServiceList />
@@ -138,7 +138,7 @@ const Home = () => {
         <div className="container">
           <div className="xl:w-[470px] mx-auto">
           <h2 className="heading text-center">Meet Our Top Greeners</h2>
-<p className="text__para text-center">Get to know the dedicated individuals who bring expertise, passion, and green-thumb magic to every garden they touch. Our top greeners are seasoned professionals committed to excellence, ensuring your outdoor space flourishes with beauty and vitality. Discover the difference they can make in your garden today!</p>
+<p className="text__para text-center">Our top greeners are seasoned professionals committed to excellence</p>
           </div>
           <GreenerList />
         </div>
@@ -163,7 +163,7 @@ const Home = () => {
         <div className="container">
           <div className="xl:w-[470px] mx-auto">
           <h2 className="heading text-center">Discover Customer Stories</h2>
-<p className="text__para text-center">Explore the experiences of our valued customers and hear firsthand how our services have transformed their lives. From glowing testimonials to heartfelt reviews, our customers' stories speak volumes about the quality and impact of our work. Join the chorus of satisfied clients and experience the difference for yourself.</p>
+<p className="text__para text-center">Explore the experiences of our valued customers and hear firsthand how our services have transformed their lives.</p>
           </div>
           <Testimonial />
         </div>

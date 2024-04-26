@@ -1,5 +1,5 @@
-const upload_preset = "dogesozm3";
-const cloud_name = "greener-booking";
+const upload_preset = "greener-booking";
+const cloud_name = "dogesozm3";
 
 const uploadImageToCloudinary = async file => {
     const uploadData = new FormData();

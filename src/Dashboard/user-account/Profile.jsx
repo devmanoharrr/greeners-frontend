@@ -3,7 +3,7 @@ import React, { useEffect } from "react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import uploadImageToCloudinary from "../../utils/uploadCloudinary.js";
-import { BASE_URL, token } from "../../config.js";
+import { BASE_URL } from "../../config.js";
 import { toast } from "react-toastify";
 import HashLoader from "react-spinners/HashLoader.js";
 
@@ -38,6 +38,16 @@ const Profile = ({ user }) => {
     setSelectedFile(data.url);
     setFormData({ ...formData, photo: data.url });
   };
+  const [token, setToken] = useState(localStorage.getItem("token") || ""); // Get the token from localStorage
+
+  useEffect(() => {
+    // Update token when it changes in local storage
+    const updateToken = () => {
+      setToken(localStorage.getItem("token") || "");
+    };
+    window.addEventListener("storage", updateToken);
+    return () => window.removeEventListener("storage", updateToken);
+  }, []);
 
   const submitHandler = async (event) => {
     event.preventDefault();

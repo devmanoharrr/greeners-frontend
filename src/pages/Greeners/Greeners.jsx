@@ -22,18 +22,7 @@ const Greeners = () => {
     return () => clearTimeout(timeout);
   }, [query]);
 
-  const [token, setToken] = useState(localStorage.getItem("token") || ""); // Get the token from localStorage
-
-  useEffect(() => {
-    // Update token when it changes in local storage
-    const updateToken = () => {
-      setToken(localStorage.getItem("token") || "");
-    };
-    window.addEventListener("storage", updateToken);
-    return () => window.removeEventListener("storage", updateToken);
-  }, []);
-
-  const { data: greeners, loading, error } = useFetchData(`${BASE_URL}/greeners?query=${debounceQuery}`, token);
+  const { data: greeners, loading, error } = useFetchData(`${BASE_URL}/greeners?query=${debounceQuery}`);
 
   return (
     <>

@@ -5,18 +5,7 @@ import Loading from "../../components/Loader/Loading";
 import Error from "../../components/Error/Error";
 
 const MyBookings = () => {
-
-  const [token, setToken] = useState(localStorage.getItem("token") || ""); // Get the token from localStorage
-
-  useEffect(() => {
-    // Update token when it changes in local storage
-    const updateToken = () => {
-      setToken(localStorage.getItem("token") || "");
-    };
-    window.addEventListener("storage", updateToken);
-    return () => window.removeEventListener("storage", updateToken);
-  }, []);
-  const { data: appointments, loading, error } = useFetchData(`${BASE_URL}/users/appointments/my-appointments`, token);
+  const { data: appointments, loading, error } = useFetchData(`${BASE_URL}/users/appointments/my-appointments`);
 
   return (
     <div>

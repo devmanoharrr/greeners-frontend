@@ -12,19 +12,8 @@ import Error from "../../components/Error/Error";
 const MyAccount = () => {
   const { dispatch } = useContext(authContext);
   const [tab, setTab] = useState("bookings");
-  const [token, setToken] = useState(localStorage.getItem("token") || ""); // Get the token from localStorage
 
-  useEffect(() => {
-    // Update token when it changes in local storage
-    const updateToken = () => {
-      setToken(localStorage.getItem("token") || "");
-    };
-    window.addEventListener("storage", updateToken);
-    return () => window.removeEventListener("storage", updateToken);
-  }, []);
-
-
-  const { data: userData, loading, error } = useGetProfile(`${BASE_URL}/users/profile/me`, token);
+  const { data: userData, loading, error } = useGetProfile(`${BASE_URL}/users/profile/me`);
 
   const handleLogout = () => {
     dispatch({ type: "LOGOUT" });

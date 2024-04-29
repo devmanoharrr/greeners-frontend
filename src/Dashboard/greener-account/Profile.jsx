@@ -1,10 +1,20 @@
 import { useEffect, useState } from "react";
 import { AiOutlineDelete } from "react-icons/ai";
 import uploadImageToCloudinary from "./../../utils/uploadCloudinary";
-import { BASE_URL, token } from "./../../config";
+import { BASE_URL } from "./../../config";
 import { toast } from "react-toastify";
 const Profile = ({ greenerData }) => {
-  console.log(greenerData); // Log greenerData to inspect its structure
+
+  const [token, setToken] = useState(localStorage.getItem("token") || ""); // Get the token from localStorage
+
+  useEffect(() => {
+    // Update token when it changes in local storage
+    const updateToken = () => {
+      setToken(localStorage.getItem("token") || "");
+    };
+    window.addEventListener("storage", updateToken);
+    return () => window.removeEventListener("storage", updateToken);
+  }, []);
 
   const [formData, setFormData] = useState({
     name: "",

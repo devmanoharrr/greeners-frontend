@@ -10,7 +10,7 @@ export const greeners = [
     avgRating: 4.8,
     totalRating: 272,
     photo: greenerImg01,
-    totalPatient: 500,
+    totalCustomers: 500,
     hospital: "London",
   },
   {
@@ -20,7 +20,7 @@ export const greeners = [
     avgRating: 4.8,
     totalRating: 272,
     photo: greenerImg02,
-    totalPatient: 400,
+    totalCustomers: 400,
     hospital: "Birmingham",
   },
   {
@@ -30,7 +30,7 @@ export const greeners = [
     avgRating: 4.8,
     totalRating: 272,
     photo: greenerImg03,
-    totalPatient: 700,
+    totalCustomers: 700,
     hospital: "Southampton",
   },
 ];

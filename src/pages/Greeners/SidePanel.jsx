@@ -1,5 +1,42 @@
+import { useState, useEffect } from "react";
 import convertTime from "../../utils/convertTime";
+import { BASE_URL } from "../../config";
+import { toast } from "react-toastify";
+
 const SidePanel = ({ greenerId, ticketPrice, timeSlots }) => {
+  const [token, setToken] = useState(localStorage.getItem("token") || "");
+
+  useEffect(() => {
+    const updateToken = () => {
+      setToken(localStorage.getItem("token") || "");
+    };
+    window.addEventListener("storage", updateToken);
+    return () => window.removeEventListener("storage", updateToken);
+  }, []);
+
+  const bookingHandler = async (token) => {
+    try {
+      const res = await fetch(`${BASE_URL}/bookings/checkout-session/${greenerId}`, {
+        method: "post",
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+
+      const data = await res.json();
+
+      if (!res.ok) {
+        throw new Error(data.message + "Please try again");
+      }
+
+      if (data.session.url) {
+        window.location.href = data.session.url;
+      }
+    } catch (err) {
+      toast.error(err.message);
+    }
+  };
+
   return (
     <div className="shadow-panelShadow p-3 lg:p-5 rounded-md">
       <div className="flex items-center justify-between">
@@ -19,7 +56,9 @@ const SidePanel = ({ greenerId, ticketPrice, timeSlots }) => {
           ))}
         </ul>
       </div>
-      <button className="btn px-2 w-full rounded-md">Schedule Booking</button>
+      <button onClick={() => bookingHandler(token)} className="btn px-2 w-full rounded-md">
+        Schedule Booking
+      </button>
     </div>
   );
 };

@@ -8,6 +8,18 @@ import { toast } from "react-toastify";
 import HashLoader from "react-spinners/HashLoader.js";
 
 const Profile = ({ user }) => {
+
+  const [token, setToken] = useState(localStorage.getItem("token") || ""); // Get the token from localStorage
+
+  useEffect(() => {
+    // Update token when it changes in local storage
+    const updateToken = () => {
+      setToken(localStorage.getItem("token") || "");
+    };
+    window.addEventListener("storage", updateToken);
+    return () => window.removeEventListener("storage", updateToken);
+  }, []);
+  
   const [selectedFile, setSelectedFile] = useState(null);
   const [loading, setLoading] = useState(false);
 
@@ -38,16 +50,6 @@ const Profile = ({ user }) => {
     setSelectedFile(data.url);
     setFormData({ ...formData, photo: data.url });
   };
-  const [token, setToken] = useState(localStorage.getItem("token") || ""); // Get the token from localStorage
-
-  useEffect(() => {
-    // Update token when it changes in local storage
-    const updateToken = () => {
-      setToken(localStorage.getItem("token") || "");
-    };
-    window.addEventListener("storage", updateToken);
-    return () => window.removeEventListener("storage", updateToken);
-  }, []);
 
   const submitHandler = async (event) => {
     event.preventDefault();
